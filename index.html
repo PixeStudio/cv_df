@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DARIUS FIGURA — Software Developer (CV)</title>
+  <meta name="description" content="Interactive CV of Darius Figura — software developer." />
+
+  <!-- Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <!-- Flags -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icons/6.7.0/css/flag-icons.min.css">
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="cv-shell">
+    <!-- LEFT / LIGHT-BLUE -->
+    <aside class="sidebar" aria-label="Sidebar with photo, contacts, skills and languages">
+      <div class="profile">
+        <div class="avatar"></div>
+        <div class="nameblock">
+          <h1 class="brand-name">DARIUS FIGURA</h1>
+          <div class="brand-title">SOFTWARE DEVELOPER</div>
+        </div>
+      </div>
+
+      <div class="sidebar-body">
+        <ul class="contact" aria-label="Contact details">
+          <li><i class="fa-solid fa-location-dot"></i><span>Poznań, Poland</span></li>
+          <li><i class="fa-solid fa-envelope"></i><span>darius.figura@example.com</span></li>
+          <li><i class="fa-solid fa-phone"></i><span>+48 555 267 123</span></li>
+          <li><i class="fa-solid fa-globe"></i><span>github.com/dariusfigura</span></li>
+        </ul>
+
+        <section class="section-plain">
+          <h2 class="side-h">SKILLS</h2>
+          <ul class="bullets">
+            <li>HTML &amp; CSS</li>
+            <li>JavaScript</li>
+            <li>React</li>
+          </ul>
+        </section>
+
+        <section class="section-plain">
+          <h2 class="side-h">LANGUAGES</h2>
+
+          <div class="lang-block">
+            <span class="lang-name">ENGLISH</span>
+            <div class="lang-bar">
+              <div class="lang-fill" style="width:50%"></div>
+              <div class="lang-labels"><span>A1</span><span>B1</span><span>B2</span><span>C1</span></div>
+            </div>
+          </div>
+
+          <div class="lang-block">
+            <span class="lang-name">GERMAN</span>
+            <div class="lang-bar">
+              <div class="lang-fill" style="width:50%"></div>
+              <div class="lang-labels"><span>A1</span><span>B1</span><span>B2</span><span>C1</span></div>
+            </div>
+          </div>
+
+          <div class="lang-block">
+            <span class="lang-name">FRENCH</span>
+            <div class="lang-bar">
+              <div class="lang-fill" style="width:50%"></div>
+              <div class="lang-labels"><span>A1</span><span>B1</span><span>B2</span><span>C1</span></div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </aside>
+
+    <!-- RIGHT / GRAPHITE -->
+    <main class="main" aria-label="Main content with bio and sections">
+      <div class="topbar">
+        <div class="lang-select-wrapper">
+          <span id="lang-flag" class="fi fi-gb"></span>
+          <select class="lang-select" id="lang-switch" aria-label="Select language">
+            <option value="en" selected>EN</option>
+            <option value="de">DE</option>
+            <option value="fr">FR</option>
+            <option value="pl">PL</option>
+          </select>
+        </div>
+        <button class="download" id="btn-download" type="button">Download PDF</button>
+      </div>
+
+      <header class="intro">
+        <h2 class="sr-only">About</h2>
+        <h1>Professional and detail-oriented software developer</h1>
+        <p>Focused on building clean and reliable web applications. Step 1: static layout. Interactivity and multilingual content will follow.</p>
+      </header>
+
+      <section class="section" aria-labelledby="certificates-h">
+        <h2 id="certificates-h">CERTIFICATES</h2>
+        <div class="line"></div>
+        <details open>
+          <summary>Coursera</summary>
+          <div class="content">
+            <ul class="cert-list">
+              <li>
+                <button class="cert-link"
+                        data-modal-doc="JMOL0D1HNSTP.pdf"
+                        data-modal-verify="https://coursera.org/verify/JMOL0D1HNSTP"
+                        data-modal-title="Introduction to Front-End Development (Meta)">
+                  Introduction to Front-End Development (Meta)
+                </button>
+              </li>
+            </ul>
+          </div>
+        </details>
+      </section>
+
+      <section class="section" aria-labelledby="projects-h">
+        <h2 id="projects-h">PROJECTS</h2>
+        <div class="line"></div>
+        <details>
+          <summary>AKAGI — Interactive CV website</summary>
+          <div class="content">
+            <p>Goals: multilingual CV, clean components, minimal JS.</p>
+          </div>
+        </details>
+        <details>
+          <summary>OWL — Kanban & Tracker</summary>
+          <div class="content">
+            <p>Productivity tool with Kanban board and habit tracker modules.</p>
+          </div>
+        </details>
+      </section>
+
+      <section class="section" aria-labelledby="micro-h">
+        <h2 id="micro-h">MICROPROJECTS</h2>
+        <div class="line"></div>
+        <ul>
+          <li>Modal component</li>
+          <li>Kanban board</li>
+          <li>REST API basics</li>
+        </ul>
+      </section>
+    </main>
+  </div>
+
+  <!-- MODAL (shared component) -->
+  <div id="ui-modal-overlay" class="modal-overlay" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="ui-modal-title">
+      <button class="modal-close" aria-label="Close">&times;</button>
+      <a id="ui-modal-verify" class="open-external" target="_blank" rel="noopener">Verify certificate</a>
+      <h3 id="ui-modal-title">Title</h3>
+      <div class="modal-body">
+        <object id="ui-modal-doc" data="" type="application/pdf" aria-label="Document preview" style="display:none;"></object>
+        <iframe id="ui-modal-frame" src="" title="Document preview" style="display:none;" loading="lazy"></iframe>
+        <img id="ui-modal-img" alt="Image preview" style="display:none;max-width:100%;height:auto;" />
+        <div id="ui-modal-slot" style="display:none"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- scripts -->
+  <script src="components/modal.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
