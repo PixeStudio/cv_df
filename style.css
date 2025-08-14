@@ -20,6 +20,20 @@ body{
   margin:0;color:var(--text-100);
   font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Inter,"Noto Sans",sans-serif;
   display:flex;justify-content:center;background:var(--bg-900);
+  background-image: url('assets/images/body_background.webp');
+  background-size: cover;       /* wypełnia cały ekran */
+  background-position: center; /* wyśrodkowanie */
+  background-repeat: no-repeat; /* brak powtarzania */
+  background-attachment: fixed; /* efekt "parallax" */
+  /* Gradient (ciemny) + obraz */
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0; /* top:0; right:0; bottom:0; left:0; */
+  background: url("assets/images/body_background.webp") center / cover no-repeat;
+  filter: brightness(0.8) contrast(1.0); /* działa tylko na tło */
+  z-index: -1; /* pod całą treścią */
 }
 h1,h2,h3{margin:.2rem 0 .6rem;line-height:1.25}
 p{margin:.2rem 0 .8rem}
