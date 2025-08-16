@@ -125,8 +125,9 @@ ul{margin:.2rem 0 .8rem;padding-left:1.1rem}
   background:var(--graphite);
   background-image: url("assets/images/main_background.jpg");
   padding:34px 36px; position:relative;
+  height: 100%;
   display:flex; flex-direction:column; gap:24px;
-  overflow-y: auto; min-height: 0; padding-right: 10px;
+  overflow-y: scroll; min-height: 0;
 }
 
 /* 4) Kolorystyka scrollbara w „błękitach” z lewej strony */
