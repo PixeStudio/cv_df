@@ -15,15 +15,15 @@
 </head>
 <body>
   <div class="cv-shell">
-      <!-- LEFT / LIGHT-BLUE -->
-      <aside class="sidebar" aria-label="Sidebar with photo, contacts, skills and languages">
-        <div class="profile">
-          <div class="avatar"></div>
-            <div class="nameblock">
-              <h1 class="brand-name">DARIUS FIGURA</h1>
-            <div class="brand-title">SOFTWARE DEVELOPER</div>
+    <!-- LEFT / LIGHT-BLUE -->
+    <aside class="sidebar" aria-label="Sidebar with photo, contacts, skills and languages">
+      <div class="profile">
+        <div class="avatar"></div>
+        <div class="nameblock">
+          <h1 class="brand-name">DARIUS FIGURA</h1>
+          <div class="brand-title">SOFTWARE DEVELOPER</div>
         </div>
-  </div>
+      </div>
 
       <div class="sidebar-body">
         <ul class="contact" aria-label="Contact details">
@@ -74,71 +74,75 @@
 
     <!-- RIGHT / GRAPHITE -->
     <main class="main" aria-label="Main content with bio and sections">
-      <div class="topbar">
-        <div class="lang-select-wrapper">
-          <span id="lang-flag" class="fi fi-gb"></span>
-          <select class="lang-select" id="lang-switch" aria-label="Select language">
-            <option value="en" selected>EN</option>
-            <option value="de">DE</option>
-            <option value="fr">FR</option>
-            <option value="pl">PL</option>
-          </select>
+      <!-- NEW: wrapper zapewniający poprawny scroll i „domknięcie” dołu -->
+      <div class="main-container">
+        <div class="topbar">
+          <div class="lang-select-wrapper">
+            <span id="lang-flag" class="fi fi-gb"></span>
+            <select class="lang-select" id="lang-switch" aria-label="Select language">
+              <option value="en" selected>EN</option>
+              <option value="de">DE</option>
+              <option value="fr">FR</option>
+              <option value="pl">PL</option>
+            </select>
+          </div>
+          <button class="download" id="btn-download" type="button">Download PDF</button>
         </div>
-        <button class="download" id="btn-download" type="button">Download PDF</button>
+
+        <header class="intro">
+          <h2 class="sr-only">About</h2>
+          <h1>Professional and detail-oriented software developer</h1>
+          <p>Focused on building clean and reliable web applications. Step 1: static layout. Interactivity and multilingual content will follow.</p>
+        </header>
+
+        <section class="section" aria-labelledby="certificates-h">
+          <h2 id="certificates-h">CERTIFICATES</h2>
+          <div class="line"></div>
+          <details open>
+            <summary>Coursera</summary>
+            <div class="content">
+              <ul class="cert-list">
+                <li>
+                  <button class="cert-link"
+                          data-modal-doc="assets/certificates/JMOL0D1HNSTP.pdf"
+                          data-modal-verify="https://coursera.org/verify/JMOL0D1HNSTP"
+                          data-modal-title="Introduction to Front-End Development (Meta)">
+                    Introduction to Front-End Development (Meta)
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </details>
+        </section>
+
+        <section class="section" aria-labelledby="projects-h">
+          <h2 id="projects-h">PROJECTS</h2>
+          <div class="line"></div>
+          <details>
+            <summary>AKAGI — Interactive CV website</summary>
+            <div class="content">
+              <p>Goals: multilingual CV, clean components, minimal JS.</p>
+            </div>
+          </details>
+          <details>
+            <summary>OWL — Kanban & Tracker</summary>
+            <div class="content">
+              <p>Productivity tool with Kanban board and habit tracker modules.</p>
+            </div>
+          </details>
+        </section>
+
+        <section class="section" aria-labelledby="micro-h">
+          <h2 id="micro-h">MICROPROJECTS</h2>
+          <div class="line"></div>
+          <ul>
+            <li>Modal component</li>
+            <li>Kanban board</li>
+            <li>REST API basics</li>
+          </ul>
+        </section>
       </div>
-
-      <header class="intro">
-        <h2 class="sr-only">About</h2>
-        <h1>Professional and detail-oriented software developer</h1>
-        <p>Focused on building clean and reliable web applications. Step 1: static layout. Interactivity and multilingual content will follow.</p>
-      </header>
-
-      <section class="section" aria-labelledby="certificates-h">
-        <h2 id="certificates-h">CERTIFICATES</h2>
-        <div class="line"></div>
-        <details open>
-          <summary>Coursera</summary>
-          <div class="content">
-            <ul class="cert-list">
-              <li>
-                <button class="cert-link"
-                        data-modal-doc="assets/certificates/JMOL0D1HNSTP.pdf"
-                        data-modal-verify="https://coursera.org/verify/JMOL0D1HNSTP"
-                        data-modal-title="Introduction to Front-End Development (Meta)">
-                  Introduction to Front-End Development (Meta)
-                </button>
-              </li>
-            </ul>
-          </div>
-        </details>
-      </section>
-
-      <section class="section" aria-labelledby="projects-h">
-        <h2 id="projects-h">PROJECTS</h2>
-        <div class="line"></div>
-        <details>
-          <summary>AKAGI — Interactive CV website</summary>
-          <div class="content">
-            <p>Goals: multilingual CV, clean components, minimal JS.</p>
-          </div>
-        </details>
-        <details>
-          <summary>OWL — Kanban & Tracker</summary>
-          <div class="content">
-            <p>Productivity tool with Kanban board and habit tracker modules.</p>
-          </div>
-        </details>
-      </section>
-
-      <section class="section" aria-labelledby="micro-h">
-        <h2 id="micro-h">MICROPROJECTS</h2>
-        <div class="line"></div>
-        <ul>
-          <li>Modal component</li>
-          <li>Kanban board</li>
-          <li>REST API basics</li>
-        </ul>
-      </section>
+      <!-- /main-container -->
     </main>
   </div>
 
@@ -151,6 +155,7 @@
       <div class="modal-body">
         <object id="ui-modal-doc" data="" type="application/pdf" aria-label="Document preview" style="display:none;"></object>
         <iframe id="ui-modal-frame" src="" title="Document preview" style="display:none;" loading="lazy"></iframe>
+        <embed  id="ui-modal-embed" src="" type="application/pdf" style="display:none;" />
         <img id="ui-modal-img" alt="Image preview" style="display:none;max-width:100%;height:auto;" />
         <div id="ui-modal-slot" style="display:none"></div>
       </div>
@@ -158,7 +163,7 @@
   </div>
 
   <!-- scripts -->
-  <script src="components/modal.js"></script>
+  <script src="modal.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
